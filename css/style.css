@@ -292,25 +292,23 @@ article .entry .video-container {
   margin-top: 15px;
 }
 article .entry blockquote {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  font-style: italic;
-  font-family: "Georgia", serif;
-  font-size: 1.2em;
-  padding: 0 30px 15px;
-  text-align: center;
+  border-left: 0.2em solid #2ca6cb;
+  margin: 0.65em 0 0.65em 1%;
+  padding-left: 1%;
+  line-height: line-height;
+  font-size: font-size;
+  color: #999;
 }
 article .entry blockquote footer {
-  border-top: none;
-  font-size: 0.8em;
-  line-height: 1;
-  margin: 20px 0 0;
-  padding-top: 0;
+  background: #fafafa;
+  padding: 0;
+  margin: 0;
+  font-size: 80%;
+  line-height: 1em;
 }
-article .entry blockquote footer cite:before {
-  content: '—';
-  color: #ccc;
-  padding: 0 0.5em;
+article .entry blockquote cite {
+  font-style: italic;
+  padding-left: 0.5em;
 }
 article .entry code,
 article .entry pre {
