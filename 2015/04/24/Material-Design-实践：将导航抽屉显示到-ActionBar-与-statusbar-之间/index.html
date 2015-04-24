@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Icewater&#39;s Blog</title>
+  <title>Material Design 实践：将导航抽屉显示到 ActionBar 与 statusbar 之间 | Icewater&#39;s Blog</title>
   <meta name="author" content="lfq7413">
   
   <meta name="description" content="description">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Material Design 实践：将导航抽屉显示到 ActionBar 与 statusbar 之间"/>
   <meta property="og:site_name" content="Icewater&#39;s Blog"/>
 
   
@@ -46,8 +46,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
@@ -57,7 +56,7 @@
       
       
   
-    <h1 class="title"><a href="/2015/04/24/Material-Design-实践：将导航抽屉显示到-ActionBar-与-statusbar-之间/">Material Design 实践：将导航抽屉显示到 ActionBar 与 statusbar 之间</a></h1>
+    <h1 class="title">Material Design 实践：将导航抽屉显示到 ActionBar 与 statusbar 之间</h1>
   
 
     </header>
@@ -162,7 +161,22 @@
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/Android/">Android</a>
+  </div>
+
         
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -170,189 +184,7 @@
 </article>
 
 
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-04-20T05:23:34.000Z"><a href="/2015/04/20/Android-蓝牙-spp-开发汇总/">2015-04-20</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/04/20/Android-蓝牙-spp-开发汇总/">Android 蓝牙 spp 开发汇总</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="0x00">0x00</h2><p>本文记录蓝牙 spp 开发的流程及遇到的问题。包括设备扫描、配对、连接、数据交互</p>
-<blockquote>
-<p><strong>蓝牙权限：</strong></p>
-</blockquote>
-<pre><code>&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.BLUETOOTH"</span> /&gt;
-&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.BLUETOOTH_ADMIN"</span> /&gt;
-</code></pre><h2 id="0x01_设备扫描">0x01 设备扫描</h2><ul>
-<li><p>获取蓝牙适配器</p>
-<pre><code>BluetoothAdapter.getDefaultAdapter<span class="comment">()</span>;
-</code></pre></li>
-<li><p>检测蓝牙是否打开</p>
-<pre><code>BluetoothAdapter.<span class="function"><span class="title">isEnabled</span><span class="params">()</span></span>
-</code></pre></li>
-<li><p>打开蓝牙设置界面</p>
-<pre><code>Intent intent = <span class="keyword">new</span> Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-startActivityForResult(intent, Activity.REQUEST_ENABLE);
-
-<span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>{
-    <span class="keyword">if</span> (requestCode == REQUEST_ENABLE) {
-        <span class="keyword">if</span> (resultCode == RESULT_OK) {
-            <span class="comment">//TODO 接收蓝牙打开的消息</span>
-        } 
-    }
-}
-</code></pre></li>
-<li><p>开启扫描</p>
-<pre><code>BluetoothAdapter.startDiscovery<span class="comment">()</span>;
-</code></pre></li>
-<li><p>接收扫描结果</p>
-<pre><code>IntentFilter intentFilter <span class="subst">=</span> <span class="literal">new</span> IntentFilter();
-intentFilter<span class="built_in">.</span>addAction(BluetoothDevice<span class="built_in">.</span>ACTION_FOUND);
-intentFilter<span class="built_in">.</span>addAction(BluetoothAdapter<span class="built_in">.</span>ACTION_DISCOVERY_FINISHED);
-registerReceiver(<span class="literal">new</span> ScanBluetoothReceiver(), intentFilter);
-
-<span class="keyword">public</span> <span class="literal">void</span> onReceive(Context context, final Intent intent) {
-    <span class="built_in">String</span> action <span class="subst">=</span> intent<span class="built_in">.</span>getAction();
-    BluetoothDevice bluetoothDevice <span class="subst">=</span> intent<span class="built_in">.</span>getParcelableExtra(BluetoothDevice<span class="built_in">.</span>EXTRA_DEVICE);
-    <span class="keyword">if</span> (action<span class="built_in">.</span><span class="keyword">equals</span>(BluetoothDevice<span class="built_in">.</span>ACTION_FOUND)) {
-        <span class="comment">//TODO 扫描到设备 bluetoothDevice</span>
-    } <span class="keyword">else</span> <span class="keyword">if</span> (action<span class="built_in">.</span><span class="keyword">equals</span>(BluetoothAdapter<span class="built_in">.</span>ACTION_DISCOVERY_FINISHED)) {
-        <span class="comment">//TODO 扫描结束</span>
-        <span class="comment">//TODO 取消注册该接收器 unregisterReceiver(this);</span>
-    } 
-}
-</code></pre></li>
-</ul>
-<h2 id="0x02_配对">0x02 配对</h2><ul>
-<li><p>在与设备进行交互前停止设备扫描，设备扫描将影响设备的连接速度</p>
-<pre><code><span class="type">BluetoothAdapter</span>.cancelDiscovery<span class="literal">()</span>;
-</code></pre></li>
-<li><p>设备配对</p>
-<pre><code><span class="keyword">if</span> (<span class="type">BluetoothDevice</span>.getBondState<span class="literal">()</span> != <span class="type">BluetoothDevice</span>.<span class="type">BOND_BONDED</span>) {
-    <span class="type">BluetoothDevice</span>.createBond<span class="literal">()</span>;
-}
-</code></pre></li>
-<li><p>接受设备配对结果</p>
-<pre><code>IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();
-intentFilter.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-registerReceiver(<span class="keyword">new</span> PairStateChangeReceiver(), intentFilter);
-
-<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>{
-    <span class="keyword">if</span> (intent.getAction().equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) {
-        n++;
-        device = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(device.getAddress());
-        <span class="keyword">if</span>(device.getBondState() != BluetoothDevice.BOND_BONDED){
-            <span class="keyword">if</span>(n&gt;<span class="number">1</span>){
-                n = <span class="number">0</span>;
-                <span class="comment">//TODO 一般会接收到两次配对状态改变的广播，</span>
-                <span class="comment">//TODO 当失败两次时则表示配对失败。</span>
-            }
-            <span class="keyword">return</span>;
-        }
-        <span class="comment">//TODO 配对成功之后可选择继续连接设备</span>
-        <span class="comment">//TODO 配对成功之后取消注册 unregisterReceiver(this);</span>
-    }
-}
-</code></pre></li>
-</ul>
-<h2 id="0x03_连接">0x03 连接</h2><ul>
-<li><p>设备连接，使用通用的 SPP UUID 。</p>
-<pre><code>BluetoothSocket <span class="variable">temp =</span> <span class="constant">null</span>; //TODO 使用中间变量赋值
-BluetoothSocket <span class="variable">mSocket =</span> <span class="constant">null</span>;
-String <span class="variable">uuid =</span> <span class="string">"00001101-0000-1000-8000-00805F9B34FB"</span>;
-UUID <span class="variable">mUUID =</span> UUID.fromString(uuid);
-<span class="variable">temp =</span> device.createInsecureRfcommSocketToServiceRecord(mUUID);
-<span class="variable">mSocket =</span> temp;
-mSocket.connect();
-</code></pre></li>
-</ul>
-<h2 id="0x04_数据交互">0x04 数据交互</h2><ul>
-<li><p>写入数据</p>
-<pre><code>BufferedOutputStream <span class="keyword">out</span> = <span class="keyword">new</span> BufferedOutputStream(connection.getOutputStream());
-<span class="keyword">out</span>.<span class="keyword">write</span>(data);
-<span class="keyword">out</span>.flush();
-</code></pre></li>
-<li><p>读取数据</p>
-<pre><code><span class="type">InputStream</span> input = connection.getInputStream<span class="literal">()</span>;
-<span class="built_in">int</span> i;
-<span class="keyword">if</span>(input.available<span class="literal">()</span> != <span class="number">0</span>){
-    i = input.read<span class="literal">()</span>;
-}
-</code></pre></li>
-</ul>
-<h2 id="0x05_总结">0x05 总结</h2><p><strong>需要注意的问题有以下几点：</strong></p>
-<ul>
-<li>连接设备前务必关闭设备扫描，设备发现消耗很大，会影响连接速度；</li>
-<li>配对时，会立即发出状态改变广播，配对结束会再次发送；</li>
-<li>在 SPP 开发时，使用通用的 UUID ；</li>
-<li>在读取数据时可配合使用 <code>input.available()</code> 达到设置超时的目的。</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-03-14T09:26:12.000Z"><a href="/2015/03/14/hello-world/">2015-03-14</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/03/14/hello-world/">Hello</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="Hello_world!">Hello world!</h1><p><img src="http://ww1.sinaimg.cn/large/6c02de7djw1eq5mcc1bpuj21kw15iwlw.jpg" alt=""></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav></div></div>
+</div></div>
     <aside id="sidebar" class="alignright">
   
 <div class="widget tag">
