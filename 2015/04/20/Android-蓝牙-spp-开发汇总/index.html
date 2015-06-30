@@ -66,105 +66,51 @@
 <blockquote>
 <p><strong>蓝牙权限：</strong></p>
 </blockquote>
-<pre><code>&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.BLUETOOTH"</span> /&gt;
-&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.BLUETOOTH_ADMIN"</span> /&gt;
-</code></pre><h2 id="0x01_设备扫描">0x01 设备扫描</h2><ul>
-<li><p>获取蓝牙适配器</p>
-<pre><code>BluetoothAdapter.getDefaultAdapter<span class="comment">()</span>;
-</code></pre></li>
-<li><p>检测蓝牙是否打开</p>
-<pre><code>BluetoothAdapter.<span class="function"><span class="title">isEnabled</span><span class="params">()</span></span>
-</code></pre></li>
-<li><p>打开蓝牙设置界面</p>
-<pre><code>Intent intent = <span class="keyword">new</span> Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-startActivityForResult(intent, Activity.REQUEST_ENABLE);
-
-<span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>{
-    <span class="keyword">if</span> (requestCode == REQUEST_ENABLE) {
-        <span class="keyword">if</span> (resultCode == RESULT_OK) {
-            <span class="comment">//TODO 接收蓝牙打开的消息</span>
-        } 
-    }
-}
-</code></pre></li>
-<li><p>开启扫描</p>
-<pre><code>BluetoothAdapter.startDiscovery<span class="comment">()</span>;
-</code></pre></li>
-<li><p>接收扫描结果</p>
-<pre><code>IntentFilter intentFilter <span class="subst">=</span> <span class="literal">new</span> IntentFilter();
-intentFilter<span class="built_in">.</span>addAction(BluetoothDevice<span class="built_in">.</span>ACTION_FOUND);
-intentFilter<span class="built_in">.</span>addAction(BluetoothAdapter<span class="built_in">.</span>ACTION_DISCOVERY_FINISHED);
-registerReceiver(<span class="literal">new</span> ScanBluetoothReceiver(), intentFilter);
-
-<span class="keyword">public</span> <span class="literal">void</span> onReceive(Context context, final Intent intent) {
-    <span class="built_in">String</span> action <span class="subst">=</span> intent<span class="built_in">.</span>getAction();
-    BluetoothDevice bluetoothDevice <span class="subst">=</span> intent<span class="built_in">.</span>getParcelableExtra(BluetoothDevice<span class="built_in">.</span>EXTRA_DEVICE);
-    <span class="keyword">if</span> (action<span class="built_in">.</span><span class="keyword">equals</span>(BluetoothDevice<span class="built_in">.</span>ACTION_FOUND)) {
-        <span class="comment">//TODO 扫描到设备 bluetoothDevice</span>
-    } <span class="keyword">else</span> <span class="keyword">if</span> (action<span class="built_in">.</span><span class="keyword">equals</span>(BluetoothAdapter<span class="built_in">.</span>ACTION_DISCOVERY_FINISHED)) {
-        <span class="comment">//TODO 扫描结束</span>
-        <span class="comment">//TODO 取消注册该接收器 unregisterReceiver(this);</span>
-    } 
-}
-</code></pre></li>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.BLUETOOTH"</span> /&gt;</span><br><span class="line">&lt;uses-permission android:<span class="property">name</span>=<span class="string">"android.permission.BLUETOOTH_ADMIN"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="0x01_设备扫描">0x01 设备扫描</h2><ul>
+<li>获取蓝牙适配器</li>
 </ul>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BluetoothAdapter.getDefaultAdapter<span class="comment">()</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检测蓝牙是否打开</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BluetoothAdapter.<span class="function"><span class="title">isEnabled</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开蓝牙设置界面</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);</span><br><span class="line">startActivityForResult(intent, Activity.REQUEST_ENABLE);</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (requestCode == REQUEST_ENABLE) &#123;</span><br><span class="line">		<span class="keyword">if</span> (resultCode == RESULT_OK) &#123;</span><br><span class="line">			<span class="comment">//TODO 接收蓝牙打开的消息</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>开启扫描</li>
+</ul>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BluetoothAdapter.startDiscovery<span class="comment">()</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接收扫描结果</li>
+</ul>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">IntentFilter intentFilter <span class="subst">=</span> <span class="literal">new</span> IntentFilter();</span><br><span class="line">intentFilter<span class="built_in">.</span>addAction(BluetoothDevice<span class="built_in">.</span>ACTION_FOUND);</span><br><span class="line">intentFilter<span class="built_in">.</span>addAction(BluetoothAdapter<span class="built_in">.</span>ACTION_DISCOVERY_FINISHED);</span><br><span class="line">registerReceiver(<span class="literal">new</span> ScanBluetoothReceiver(), intentFilter);</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="literal">void</span> onReceive(Context context, final Intent intent) &#123;</span><br><span class="line">	<span class="built_in">String</span> action <span class="subst">=</span> intent<span class="built_in">.</span>getAction();</span><br><span class="line">	BluetoothDevice bluetoothDevice <span class="subst">=</span> intent<span class="built_in">.</span>getParcelableExtra(BluetoothDevice<span class="built_in">.</span>EXTRA_DEVICE);</span><br><span class="line">	<span class="keyword">if</span> (action<span class="built_in">.</span><span class="keyword">equals</span>(BluetoothDevice<span class="built_in">.</span>ACTION_FOUND)) &#123;</span><br><span class="line">		<span class="comment">//TODO 扫描到设备 bluetoothDevice</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (action<span class="built_in">.</span><span class="keyword">equals</span>(BluetoothAdapter<span class="built_in">.</span>ACTION_DISCOVERY_FINISHED)) &#123;</span><br><span class="line">		<span class="comment">//TODO 扫描结束</span></span><br><span class="line">		<span class="comment">//TODO 取消注册该接收器 unregisterReceiver(this);</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="0x02_配对">0x02 配对</h2><ul>
-<li><p>在与设备进行交互前停止设备扫描，设备扫描将影响设备的连接速度</p>
-<pre><code><span class="type">BluetoothAdapter</span>.cancelDiscovery<span class="literal">()</span>;
-</code></pre></li>
-<li><p>设备配对</p>
-<pre><code><span class="keyword">if</span> (<span class="type">BluetoothDevice</span>.getBondState<span class="literal">()</span> != <span class="type">BluetoothDevice</span>.<span class="type">BOND_BONDED</span>) {
-    <span class="type">BluetoothDevice</span>.createBond<span class="literal">()</span>;
-}
-</code></pre></li>
-<li><p>接受设备配对结果</p>
-<pre><code>IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();
-intentFilter.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-registerReceiver(<span class="keyword">new</span> PairStateChangeReceiver(), intentFilter);
-
-<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>{
-    <span class="keyword">if</span> (intent.getAction().equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) {
-        n++;
-        device = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(device.getAddress());
-        <span class="keyword">if</span>(device.getBondState() != BluetoothDevice.BOND_BONDED){
-            <span class="keyword">if</span>(n&gt;<span class="number">1</span>){
-                n = <span class="number">0</span>;
-                <span class="comment">//TODO 一般会接收到两次配对状态改变的广播，</span>
-                <span class="comment">//TODO 当失败两次时则表示配对失败。</span>
-            }
-            <span class="keyword">return</span>;
-        }
-        <span class="comment">//TODO 配对成功之后可选择继续连接设备</span>
-        <span class="comment">//TODO 配对成功之后取消注册 unregisterReceiver(this);</span>
-    }
-}
-</code></pre></li>
+<li>在与设备进行交互前停止设备扫描，设备扫描将影响设备的连接速度</li>
 </ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BluetoothAdapter</span>.cancelDiscovery<span class="literal">()</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设备配对</li>
+</ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="type">BluetoothDevice</span>.getBondState<span class="literal">()</span> != <span class="type">BluetoothDevice</span>.<span class="type">BOND_BONDED</span>) &#123;</span><br><span class="line">	<span class="type">BluetoothDevice</span>.createBond<span class="literal">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接受设备配对结果</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();</span><br><span class="line">intentFilter.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);</span><br><span class="line">registerReceiver(<span class="keyword">new</span> PairStateChangeReceiver(), intentFilter);</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (intent.getAction().equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) &#123;</span><br><span class="line">		n++;</span><br><span class="line">		device = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(device.getAddress());</span><br><span class="line">		<span class="keyword">if</span>(device.getBondState() != BluetoothDevice.BOND_BONDED)&#123;</span><br><span class="line">			<span class="keyword">if</span>(n&gt;<span class="number">1</span>)&#123;</span><br><span class="line">				n = <span class="number">0</span>;</span><br><span class="line">				<span class="comment">//TODO 一般会接收到两次配对状态改变的广播，</span></span><br><span class="line">				<span class="comment">//TODO 当失败两次时则表示配对失败。</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//TODO 配对成功之后可选择继续连接设备</span></span><br><span class="line">		<span class="comment">//TODO 配对成功之后取消注册 unregisterReceiver(this);</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="0x03_连接">0x03 连接</h2><ul>
-<li><p>设备连接，使用通用的 SPP UUID 。</p>
-<pre><code>BluetoothSocket <span class="variable">temp =</span> <span class="constant">null</span>; //TODO 使用中间变量赋值
-BluetoothSocket <span class="variable">mSocket =</span> <span class="constant">null</span>;
-String <span class="variable">uuid =</span> <span class="string">"00001101-0000-1000-8000-00805F9B34FB"</span>;
-UUID <span class="variable">mUUID =</span> UUID.fromString(uuid);
-<span class="variable">temp =</span> device.createInsecureRfcommSocketToServiceRecord(mUUID);
-<span class="variable">mSocket =</span> temp;
-mSocket.connect();
-</code></pre></li>
+<li>设备连接，使用通用的 SPP UUID 。</li>
 </ul>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BluetoothSocket <span class="variable">temp =</span> <span class="constant">null</span>; //TODO 使用中间变量赋值</span><br><span class="line">BluetoothSocket <span class="variable">mSocket =</span> <span class="constant">null</span>;</span><br><span class="line">String <span class="variable">uuid =</span> <span class="string">"00001101-0000-1000-8000-00805F9B34FB"</span>;</span><br><span class="line">UUID <span class="variable">mUUID =</span> UUID.fromString(uuid);</span><br><span class="line"><span class="variable">temp =</span> device.createInsecureRfcommSocketToServiceRecord(mUUID);</span><br><span class="line"><span class="variable">mSocket =</span> temp;</span><br><span class="line">mSocket.connect();</span><br></pre></td></tr></table></figure>
 <h2 id="0x04_数据交互">0x04 数据交互</h2><ul>
-<li><p>写入数据</p>
-<pre><code>BufferedOutputStream <span class="keyword">out</span> = <span class="keyword">new</span> BufferedOutputStream(connection.getOutputStream());
-<span class="keyword">out</span>.<span class="keyword">write</span>(data);
-<span class="keyword">out</span>.flush();
-</code></pre></li>
-<li><p>读取数据</p>
-<pre><code><span class="type">InputStream</span> input = connection.getInputStream<span class="literal">()</span>;
-<span class="built_in">int</span> i;
-<span class="keyword">if</span>(input.available<span class="literal">()</span> != <span class="number">0</span>){
-    i = input.read<span class="literal">()</span>;
-}
-</code></pre></li>
+<li>写入数据</li>
 </ul>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BufferedOutputStream <span class="keyword">out</span> = <span class="keyword">new</span> BufferedOutputStream(connection.getOutputStream());</span><br><span class="line"><span class="keyword">out</span>.<span class="keyword">write</span>(data);</span><br><span class="line"><span class="keyword">out</span>.flush();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读取数据</li>
+</ul>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">InputStream</span> input = connection.getInputStream<span class="literal">()</span>;</span><br><span class="line"><span class="built_in">int</span> i;</span><br><span class="line"><span class="keyword">if</span>(input.available<span class="literal">()</span> != <span class="number">0</span>)&#123;</span><br><span class="line">	i = input.read<span class="literal">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="0x05_总结">0x05 总结</h2><p><strong>需要注意的问题有以下几点：</strong></p>
 <ul>
 <li>连接设备前务必关闭设备扫描，设备发现消耗很大，会影响连接速度；</li>
