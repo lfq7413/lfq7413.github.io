@@ -53,6 +53,80 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-07-27T07:50:20.000Z"><a href="/2015/07/27/iOS开发学习笔记2/">2015-07-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/27/iOS开发学习笔记2/">iOS开发学习笔记2</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="0x00_概述">0x00 概述</h2><p>本文基于 <a href="http://www.imooc.com/learn/173" target="_blank" rel="external">使用Swift开发iOS8 App实战</a> 1-5章的内容。包含 iOS 开发的几个技巧与控件的使用。</p>
+<h2 id="0x01_小技巧">0x01 小技巧</h2><ol>
+<li><p>将应用内的图片资源设置到 UIImageView 控件上</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image.image = <span class="type">UIImage</span>(named: <span class="type">String</span>(imageNumber))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>点击应用中的空白位置隐藏软键盘</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">touchesEnded</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//让 UITextField 释放焦点，从而隐藏键盘</span></span><br><span class="line">    yearOfBirth.resignFirstResponder()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UITextField 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置 UITextFieldDelegate</span></span><br><span class="line"><span class="comment">//点击回车键时隐藏键盘</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span> -&gt; <span class="title">Bool</span> </span>&#123;</span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在 storyboard 中可设置 UITextField 的 Return key，使回车键显示指定的文字</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UISegmentedControl 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 UISegmentedControl 被选中的项</span></span><br><span class="line">sel.selectedSegmentIndex</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UIDatePicker 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前选择的时间</span></span><br><span class="line">day.date</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UISlider 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给 UISlider 注册 value changed 事件</span></span><br><span class="line"><span class="preprocessor">@IBAction</span> <span class="func"><span class="keyword">func</span> <span class="title">hightChanged</span><span class="params">(sender: AnyObject)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> slider = sender <span class="keyword">as</span>! <span class="type">UISlider</span></span><br><span class="line">    <span class="keyword">let</span> i = <span class="type">Int</span>(slider.value)</span><br><span class="line">    slider.value = <span class="type">Float</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UISwitch 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 UISwitch 的状态</span></span><br><span class="line">swc.on</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比较时间、计算时间间隔</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> gre = <span class="type">NSCalendar</span>(calendarIdentifier: <span class="type">NSCalendarIdentifierGregorian</span>)</span><br><span class="line"><span class="keyword">let</span> now = <span class="type">NSDate</span>()</span><br><span class="line"><span class="keyword">let</span> comp = gre?.components(<span class="type">NSCalendarUnit</span>.<span class="type">Year</span>, fromDate: brithday.date, toDate: now, options: <span class="type">NSCalendarOptions</span>(rawValue: <span class="number">0</span>))</span><br><span class="line"><span class="keyword">let</span> age = comp?.year</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UIPickerView 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现 UIPickerViewDataSource 协议</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UIPickerViewDataSource</span> </span>&#123;</span><br><span class="line">    <span class="comment">// returns the number of 'columns' to display.</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">numberOfComponentsInPickerView</span><span class="params">(pickerView: UIPickerView)</span> -&gt; <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// returns the # of rows in each component..</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">pickerView</span><span class="params">(pickerView: UIPickerView, numberOfRowsInComponent component: Int)</span> -&gt; <span class="title">Int</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> beauties.<span class="built_in">count</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现 UIPickerViewDelegate 协议</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UIPickerViewDelegate</span> </span>&#123;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">pickerView</span><span class="params">(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)</span> -&gt; <span class="title">String</span>? </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> beauties[row]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">pickerView</span><span class="params">(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"sel: <span class="subst">\(beauties[row])</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//设置 dataSource 与 delegate</span></span><br><span class="line">beautyPicker.dataSource = <span class="keyword">self</span></span><br><span class="line">beautyPicker.delegate = <span class="keyword">self</span></span><br><span class="line"><span class="comment">//获取选中的行</span></span><br><span class="line">beautyPicker.selectedRowInComponent(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>segue 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在 Storyboard 中创建 segue ，并且设置 identifier 属性，</span></span><br><span class="line"><span class="comment">//方便代码中判断具体的 segue</span></span><br><span class="line"><span class="comment">//处理跳转事件，共享数据</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">prepareForSegue</span><span class="params">(segue: UIStoryboardSegue, sender: AnyObject?)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//判断具体是哪个 segue</span></span><br><span class="line">    <span class="keyword">if</span> segue.identifier == <span class="string">"GotoGallery"</span> &#123;</span><br><span class="line">        <span class="comment">//获取要跳转的 ViewController</span></span><br><span class="line">        <span class="keyword">let</span> vc = segue.destinationViewController <span class="keyword">as</span>! <span class="type">GalleryViewController</span></span><br><span class="line">        <span class="comment">//共享数据</span></span><br><span class="line">        vc.imageName = imageName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在 Storyboard 中设置子 ViewController 的 Exit Action</span></span><br><span class="line"><span class="comment">//在父 ViewController 中实现 Action ，获取回传数据</span></span><br><span class="line"><span class="preprocessor">@IBAction</span> <span class="func"><span class="keyword">func</span> <span class="title">close</span><span class="params">(segue: UIStoryboardSegue)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"close"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>NavigationController 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//快速添加 NavigationController ：</span></span><br><span class="line"><span class="comment">//选中 ViewController ，依次点击 菜单、Editor、Embed In、Navigation Controller</span></span><br><span class="line"><span class="comment">//即可快速添加 NavigationController</span></span><br><span class="line"><span class="comment">//在 Storyboard 中可设置 Navigation Item 的 Title</span></span><br><span class="line"><span class="comment">//在代码中设置  Navigation Item 的 Title</span></span><br><span class="line">navigationItem.title = name</span><br><span class="line"><span class="comment">//在 Storyboard 中可向 Navigation Item 中添加 Bar Button Item 按钮</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Social Framework 用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">Social</span></span><br><span class="line"><span class="keyword">let</span> ctrl: <span class="type">SLComposeViewController</span> = <span class="type">SLComposeViewController</span>(forServiceType: <span class="type">SLServiceTypeTwitter</span>)</span><br><span class="line">ctrl.setInitialText(<span class="string">"hello star"</span>)</span><br><span class="line">ctrl.addImage(betimg.image)</span><br><span class="line"><span class="keyword">self</span>.presentViewController(ctrl, animated: <span class="built_in">true</span>, completion: <span class="built_in">nil</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TabBarController 用法</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//快速添加 TabBarController ：</span></span><br><span class="line"><span class="comment">//选中 ViewController ，依次点击 菜单、Editor、Embed Tab Bar Controller</span></span><br><span class="line"><span class="comment">//在 Storyboard 中可设置 Bar Item 中的 Title 以及 Image</span></span><br><span class="line"><span class="comment">//在 Storyboard 中可设置 Tab Bar Item 中的 Badge 角标</span></span><br><span class="line"><span class="comment">//在代码中设置 Tab Bar Item 的属性</span></span><br><span class="line">tabBarItem<span class="class">.title</span> = <span class="string">"hello"</span></span><br><span class="line">tabBarItem<span class="class">.image</span></span><br><span class="line">tabBarItem.badgeValue</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-22T08:38:05.000Z"><a href="/2015/07/22/iOS开发学习笔记1/">2015-07-22</a></time>
       
       
@@ -124,6 +198,9 @@
 </li>
 <li><p>自定义请求定位权限时的提示：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在 Info<span class="class">.plist</span> 中新增键值对：</span><br><span class="line">NSLocationUsageDescription</span><br><span class="line">NSLocationAlwaysUsageDescription</span><br><span class="line">添加相应的描述即可</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UIActivityIndicatorView loading控件使用方法</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loading.<span class="function"><span class="title">startAnimating</span><span class="params">()</span></span></span><br><span class="line">loading.<span class="function"><span class="title">stopAnimating</span><span class="params">()</span></span></span><br><span class="line">loading<span class="class">.hidden</span> = true</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -740,7 +817,7 @@
   
     <li><a href="/categories/Github/">Github</a><small>1</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>1</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>2</small></li>
   
     <li><a href="/categories/other/">other</a><small>1</small></li>
   
@@ -756,6 +833,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2015/07/27/iOS开发学习笔记2/">iOS开发学习笔记2</a>
+      </li>
+    
+      <li>
         <a href="/2015/07/22/iOS开发学习笔记1/">iOS开发学习笔记1</a>
       </li>
     
@@ -769,10 +850,6 @@
     
       <li>
         <a href="/2015/04/20/Android-蓝牙-spp-开发汇总/">Android 蓝牙 spp 开发汇总</a>
-      </li>
-    
-      <li>
-        <a href="/2015/03/14/hello-world/">Hello</a>
       </li>
     
   </ul>
