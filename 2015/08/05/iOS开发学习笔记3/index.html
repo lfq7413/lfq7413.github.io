@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS开发学习笔记3 | Icewater&#39;s Blog</title>
+  <meta name="author" content="lfq7413">
+  
+  <meta name="description" content="description">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="iOS开发学习笔记3"/>
+  <meta property="og:site_name" content="Icewater&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Icewater&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Icewater&#39;s Blog</a></h1>
+  <h2><a href="/">subtitle</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="https://github.com/lfq7413">GitHub</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-05T08:44:36.000Z"><a href="/2015/08/05/iOS开发学习笔记3/">2015-08-05</a></time>
+      
+      
+  
+    <h1 class="title">iOS开发学习笔记3</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="0x00_概述">0x00 概述</h2><p>本文基于 <a href="http://www.imooc.com/learn/173" target="_blank" rel="external">使用Swift开发iOS8 App实战</a> 6-7章的内容。包含 Auto Layout 的基本使用方法。</p>
+<h2 id="0x01_Auto_Layout_使用">0x01 Auto Layout 使用</h2><ol>
+<li><p>在 Storyboard 中，可按住 control 键，然后点击控件，并拖动到其他控件上，在弹出菜单上选择，完成依赖添加，然后再在属性面板上进行数值微调</p>
+</li>
+<li><p>选中 View 或者 ViewController ，点击右下角的 “Resolve Auto Layout Issues” ，可从弹出菜单中选择自动添加缺少的依赖</p>
+</li>
+<li><p>从顶部菜单的 Editor -&gt; Align 也可添加依赖</p>
+</li>
+<li><p>在 Assistant editor 面板中，从左上角选择 Preview ，即可实时预览布局在各个尺寸屏幕上的效果</p>
+</li>
+</ol>
+<h2 id="0x02_String_转_NSDate">0x02 String 转 NSDate</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">dateFromString</span><span class="params">(dateStr: String)</span> -&gt; <span class="title">NSDate</span>? </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> dateFor = <span class="type">NSDateFormatter</span>()</span><br><span class="line">    dateFor.dateFormat = <span class="string">"yyyy-MM-dd"</span></span><br><span class="line">    <span class="keyword">let</span> date = dateFor.dateFromString(dateStr)</span><br><span class="line">    <span class="keyword">return</span> date</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x03_NSData_转_String">0x03 NSData 转 String</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">stringFromData</span><span class="params">(data: NSData)</span> -&gt; <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> loc = <span class="type">NSLocale</span>.currentLocale()</span><br><span class="line">    <span class="keyword">let</span> dateFor = <span class="type">NSDateFormatter</span>.dateFormatFromTemplate(<span class="string">"yyyy-MM-dd"</span>, options: <span class="number">0</span>, locale: loc)</span><br><span class="line">    <span class="keyword">let</span> datef = <span class="type">NSDateFormatter</span>()</span><br><span class="line">    datef.dateFormat = dateFor</span><br><span class="line">    <span class="keyword">return</span> datef.stringFromDate(date)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x04_TableView_用法">0x04 TableView 用法</h2><ol>
+<li><p>配置DataSource</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现 UITableViewDataSource 协议</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UITableViewDataSource</span> </span>&#123;</span><br><span class="line">    <span class="comment">//返回指定 section 中的数据行数</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, numberOfRowsInSection section: Int)</span> -&gt; <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="comment">//判断 TableView 中的搜索框是否激活</span></span><br><span class="line">        <span class="keyword">if</span> tableView == searchDisplayController?.searchResultsTableView &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">filter</span>.<span class="built_in">count</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> todos.<span class="built_in">count</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回指定行的 cell view</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)</span> -&gt; <span class="title">UITableViewCell</span> </span>&#123;</span><br><span class="line">        <span class="comment">//在 Storyboard 中可以配置 cell 的 id</span></span><br><span class="line">        <span class="comment">//然后通过以下方式获取 cell</span></span><br><span class="line">        <span class="keyword">let</span> cell = <span class="keyword">self</span>.tableView.dequeueReusableCellWithIdentifier(<span class="string">"todoCell"</span>)</span><br><span class="line">        <span class="comment">//在 Storyboard 中可以配置 cell 中各种 view 的 Tag</span></span><br><span class="line">        <span class="comment">//然后通过以下方式获取 view</span></span><br><span class="line">        <span class="keyword">let</span> image = cell?.viewWithTag(<span class="number">101</span>) <span class="keyword">as</span>! <span class="type">UIImageView</span></span><br><span class="line">        <span class="keyword">let</span> title = cell?.viewWithTag(<span class="number">102</span>) <span class="keyword">as</span>! <span class="type">UILabel</span></span><br><span class="line">        <span class="keyword">let</span> date = cell?.viewWithTag(<span class="number">103</span>)<span class="keyword">as</span>! <span class="type">UILabel</span></span><br><span class="line">        <span class="comment">//设置各 view</span></span><br><span class="line">        image.image = <span class="type">UIImage</span>(named: todo.image)</span><br><span class="line">        title.text = todo.title</span><br><span class="line">        <span class="comment">//返回 cell</span></span><br><span class="line">        <span class="keyword">return</span> cell!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使 TableView 中的 Item 可删除</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现 UITableViewDelegate 协议</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UITableViewDelegate</span> </span>&#123;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//判断是否删除事件</span></span><br><span class="line">        <span class="keyword">if</span> editingStyle == <span class="type">UITableViewCellEditingStyle</span>.<span class="type">Delete</span> &#123;</span><br><span class="line">            <span class="comment">//从数据源移除项</span></span><br><span class="line">            todos.removeAtIndex(indexPath.row)</span><br><span class="line">            <span class="comment">//从 tableView 移除项，有动画效果</span></span><br><span class="line">            <span class="keyword">self</span>.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: <span class="type">UITableViewRowAnimation</span>.<span class="type">Automatic</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>激活 TableView 的编辑模式</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span> </span>&#123;</span><br><span class="line">    <span class="comment">//激活编辑模式</span></span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">setEditing</span><span class="params">(editing: Bool, animated: Bool)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.setEditing(editing, animated: animated)</span><br><span class="line">        <span class="keyword">self</span>.tableView.setEditing(editing, animated: animated)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//设置编辑按钮</span></span><br><span class="line">navigationItem.leftBarButtonItem = editButtonItem()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TableView 重新加载数据</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableView.reloadData()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取 TableView 中被选中的 Item</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableView.indexPathForSelectedRow</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移动 TableView 中的 Item</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UITableViewDataSource</span> </span>&#123;</span><br><span class="line">    <span class="comment">//编辑模式激活时可移动 cell</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath)</span> -&gt; <span class="title">Bool</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> editing</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//cell 移动完成后，调整数据源</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> todo = todos.removeAtIndex(sourceIndexPath.row)</span><br><span class="line">        todos.insert(todo, atIndex: destinationIndexPath.row)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 TableView 中使用搜索框</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在 storyboard 中向 TableView 添加 search bar and search display</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span>: <span class="title">UISearchDisplayDelegate</span> </span>&#123;</span><br><span class="line">    <span class="comment">//传入要搜索的字符串时进行搜索</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">searchDisplayController</span><span class="params">(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?)</span> -&gt; <span class="title">Bool</span> </span>&#123;</span><br><span class="line">        <span class="built_in">filter</span> = todos.<span class="built_in">filter</span>(&#123; (t: <span class="type">TodoModel</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">let</span> s = t.title.rangeOfString(searchString!)</span><br><span class="line">            <span class="keyword">return</span> s != <span class="built_in">nil</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//TableView 重新加载时，从结果数据元中加载数据</span></span><br><span class="line"><span class="comment">//在 TableView 的 numberOfRowsInSection 与 cellForRowAtIndexPath 回调中添加搜索出来的数据</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置 TableView 中 cell 的高度</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath)</span> -&gt; <span class="title">CGFloat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">80</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>隐藏搜索栏</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当数据超出一屏时才会起作用</span></span><br><span class="line"><span class="keyword">var</span> offset = tableView.contentOffset</span><br><span class="line">offset.y += (searchDisplayController?.searchBar.frame.size.height)!</span><br><span class="line">tableView.contentOffset = offset</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/iOS/">iOS</a>
+  </div>
+
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>2</small></li>
+  
+    <li><a href="/categories/Github/">Github</a><small>1</small></li>
+  
+    <li><a href="/categories/iOS/">iOS</a><small>3</small></li>
+  
+    <li><a href="/categories/other/">other</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/05/iOS开发学习笔记3/">iOS开发学习笔记3</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/27/iOS开发学习笔记2/">iOS开发学习笔记2</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/22/iOS开发学习笔记1/">iOS开发学习笔记1</a>
+      </li>
+    
+      <li>
+        <a href="/2015/05/06/Github-加星项目汇总/">Github 加星项目汇总</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/24/Material-Design-实践：将导航抽屉显示到-ActionBar-与-statusbar-之间/">Material Design 实践：将导航抽屉显示到 ActionBar 与 statusbar 之间</a>
+      </li>
+    
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 lfq7413
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+</body>
+</html>
