@@ -73,6 +73,241 @@
 <p>配置当前项目的用户信息</p>
 </blockquote>
 <hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config <span class="comment">--list</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看配置信息</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.<span class="property">name</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看特定配置信息</p>
+</blockquote>
+<hr>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">help</span> &lt;<span class="keyword">verb</span>&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>获取帮助信息</p>
+</blockquote>
+<h2 id="0x01_Git_基础">0x01 Git 基础</h2><hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git init</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>初始化新仓库</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git clone <span class="symbol">git:</span>/<span class="regexp">/github.com/schacon</span><span class="regexp">/grit.git</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>克隆仓库</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git status</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看当前文件状态</p>
+</blockquote>
+<hr>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">add</span> README</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>追踪与暂存文件</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git diff</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>比较的是工作目录中当前文件和暂存区域快照之间的差异</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff <span class="comment">--cached</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>比较的是已经暂存起来的文件和上次提交时的快照之间的差异</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git commit -m <span class="string">"Story 182: Fix benchmarks for speed"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提交更新</p>
+</blockquote>
+<hr>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -a -m <span class="symbol">'added</span> <span class="keyword">new</span> benchmarks'</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>跳过使用暂存区域直接提交</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git rm grit.gemspec</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>移除文件</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rm <span class="comment">--cached readme.txt</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>仅是从跟踪清单中删除</p>
+</blockquote>
+<hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv README<span class="class">.txt</span> README</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>移动文件</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="command">log</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看提交历史</p>
+</blockquote>
+<hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log -<span class="tag">p</span> -<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>常用 -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新</p>
+</blockquote>
+<hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">commit</span> <span class="comment">--amend</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改最后一次提交</p>
+</blockquote>
+<hr>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">add</span> .</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加当前目录所有文件</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git reset <span class="constant">HEAD </span>benchmarks.rb</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>取消已经暂存的文件</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout <span class="comment">-- benchmarks.rb</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>取消对文件的修改</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看当前的远程库</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote -v</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>显示对应的克隆地址</p>
+</blockquote>
+<hr>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote <span class="built_in">add</span> pb gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/paulboone/ticgit.git</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加远程仓库</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git fetch pb</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从远程仓库抓取数据</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git pull</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>自动抓取数据下来，然后将远端分支自动合并到本地仓库中当前分支</p>
+</blockquote>
+<hr>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">push</span> origin master</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>推送数据到远程仓库</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote show origin</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看远程仓库信息</p>
+</blockquote>
+<hr>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote <span class="built_in">rename</span> pb paul</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>远程仓库重命名</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote rm paul</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>远程仓库的删除</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git tag</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>列显已有的标签</p>
+</blockquote>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag <span class="operator">-l</span> <span class="string">'v1.4.2.*'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用特定的搜索模式列出符合条件的标签</p>
+</blockquote>
+<hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -<span class="tag">a</span> v1.<span class="number">4</span> -m <span class="string">'my version 1.4'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>新建含附注的标签</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git show v1.<span class="number">4</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看相应标签的版本信息，并连同显示打标签时的提交对象</p>
+</blockquote>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag <span class="operator">-s</span> v1.<span class="number">5</span> -m <span class="string">'my signed 1.5 tag'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用 GPG 来签署标签</p>
+</blockquote>
+<hr>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">tag</span> v1.<span class="number">4</span>-<span class="keyword">lw</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>轻量级标签</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git tag -v v1.<span class="number">4.2</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>验证标签</p>
+</blockquote>
+<hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -<span class="tag">a</span> v1.<span class="number">2</span> <span class="number">9</span>fceb02</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>后期加注标签</p>
+</blockquote>
+<hr>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">push</span> origin v1<span class="number">.5</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分享标签到远端仓库</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin <span class="comment">--tags</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一次推送所有本地新增的标签上去</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git config --global <span class="keyword">alias</span>.co checkout</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Git 命令别名</p>
+</blockquote>
+<h2 id="0x02_分支">0x02 分支</h2><hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git branch testing</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建一个新的分支</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git checkout testing</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>转换到新建的 testing 分支</p>
+</blockquote>
+<hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> iss53</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>新建并切换到该分支</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git checkout master</span><br><span class="line"><span class="variable">$ </span>git merge hotfix</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>合并hotfix分支到master分支<br>当前 master 分支所在的提交对象是要并入的 hotfix 分支的直接上游，Git 只需把 master 分支指针直接右移。<br>换句话说，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，<br>因为这种单线的历史分支不存在任何需要解决的分歧，所以这种合并过程可以称为快进（Fast forward）</p>
+</blockquote>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch <span class="operator">-d</span> hotfix</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>删除分支</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git merge iss53</span><br><span class="line"><span class="variable">$ </span>git status</span><br><span class="line"><span class="variable">$ </span>git add</span><br><span class="line"><span class="variable">$ </span>git commit</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>合并冲突处理流程</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git mergetool</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>调用一个可视化的合并工具并引导你解决所有冲突</p>
+</blockquote>
+<hr>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>&gt;</p>
 
