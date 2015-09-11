@@ -63,7 +63,7 @@
     </header>
     <div class="entry">
       
-        <h2 id="0x00_起步">0x00 起步</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"John Doe"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> johndoe@example.com</span><br></pre></td></tr></table></figure>
+        <h2 id="0x00_初次运行_Git_前的配置">0x00 初次运行 Git 前的配置</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"John Doe"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> johndoe@example.com</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>配置全局的用户信息</p>
 </blockquote>
@@ -87,7 +87,7 @@
 <blockquote>
 <p>获取帮助信息</p>
 </blockquote>
-<h2 id="0x01_Git_基础">0x01 Git 基础</h2><hr>
+<h2 id="0x01_取得项目的_Git_仓库">0x01 取得项目的 Git 仓库</h2><hr>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git init</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>初始化新仓库</p>
@@ -97,7 +97,7 @@
 <blockquote>
 <p>克隆仓库</p>
 </blockquote>
-<hr>
+<h2 id="0x02_记录每次更新到仓库">0x02 记录每次更新到仓库</h2><hr>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git status</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>查看当前文件状态</p>
@@ -142,7 +142,7 @@
 <blockquote>
 <p>移动文件</p>
 </blockquote>
-<hr>
+<h2 id="0x03_查看提交历史">0x03 查看提交历史</h2><hr>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="command">log</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>查看提交历史</p>
@@ -152,7 +152,7 @@
 <blockquote>
 <p>常用 -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新</p>
 </blockquote>
-<hr>
+<h2 id="0x04_撤消操作">0x04 撤消操作</h2><hr>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">commit</span> <span class="comment">--amend</span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>修改最后一次提交</p>
@@ -172,7 +172,7 @@
 <blockquote>
 <p>取消对文件的修改</p>
 </blockquote>
-<hr>
+<h2 id="0x05_远程仓库的使用">0x05 远程仓库的使用</h2><hr>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git remote</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>查看当前的远程库</p>
@@ -217,7 +217,7 @@
 <blockquote>
 <p>远程仓库的删除</p>
 </blockquote>
-<hr>
+<h2 id="0x06_打标签">0x06 打标签</h2><hr>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git tag</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>列显已有的标签</p>
@@ -267,12 +267,12 @@
 <blockquote>
 <p>一次推送所有本地新增的标签上去</p>
 </blockquote>
-<hr>
+<h2 id="0x07_技巧和窍门">0x07 技巧和窍门</h2><hr>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git config --global <span class="keyword">alias</span>.co checkout</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Git 命令别名</p>
 </blockquote>
-<h2 id="0x02_分支">0x02 分支</h2><hr>
+<h2 id="0x08_分支基础">0x08 分支基础</h2><hr>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git branch testing</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>创建一个新的分支</p>
@@ -282,7 +282,7 @@
 <blockquote>
 <p>转换到新建的 testing 分支</p>
 </blockquote>
-<hr>
+<h2 id="0x09_分支的新建与合并">0x09 分支的新建与合并</h2><hr>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> iss53</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>新建并切换到该分支</p>
@@ -307,9 +307,76 @@
 <blockquote>
 <p>调用一个可视化的合并工具并引导你解决所有冲突</p>
 </blockquote>
+<h2 id="0x0A_分支的管理">0x0A 分支的管理</h2><hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git branch</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>给出当前所有分支的清单</p>
+</blockquote>
 <hr>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>&gt;</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git branch -v</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看各个分支最后一个提交对象的信息</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch <span class="comment">--merged</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看哪些分支已被并入当前分支</p>
+</blockquote>
+<hr>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> branch --<span class="built_in">no</span>-merged</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看尚未合并的工作</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git branch -<span class="constant">D </span>testing</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>强制删除未合并的分支</p>
+</blockquote>
+<h2 id="0x0B_远程分支">0x0B 远程分支</h2><hr>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">push</span> origin serverfix</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>推送本地分支到服务器</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git fetch origin</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>再次从服务器上获取最新数据</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git merge origin/serverfix</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>把该远程分支的内容合并到当前分支</p>
+</blockquote>
+<hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> serverfix origin/serverfix</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在远程分支的基础上分化出一个新的分支来</p>
+</blockquote>
+<hr>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout <span class="comment">--track origin/serverfix</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>跟踪远程分支</p>
+</blockquote>
+<hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -<span class="tag">b</span> sf origin/serverfix</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>跟踪远程分支并设置不同名字</p>
+</blockquote>
+<hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git push origin <span class="symbol">:serverfix</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>删除远程分支：提交空白分支到远程分支</p>
+</blockquote>
+<h2 id="0x0C_分支的衍合(rebase)">0x0C 分支的衍合(rebase)</h2><hr>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git checkout experiment</span><br><span class="line"><span class="variable">$ </span>git rebase master</span><br><span class="line"><span class="variable">$ </span>git checkout master</span><br><span class="line"><span class="variable">$ </span>git merge experiment</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>衍合操作，并最终快进合并到主分支<br>它的原理是回到两个分支最近的共同祖先，<br>根据当前分支（也就是要进行衍合的分支 experiment）后续的历次提交对象（这里只有一个 C3），<br>生成一系列文件补丁，然后以基底分支（也就是主干分支 master）最后一个提交对象（C4）为新的出发点，<br>逐个应用之前准备好的补丁文件，最后会生成一个新的合并提交对象（C3’），<br>从而改写 experiment 的提交历史，使它成为 master 分支的直接下游。<br>现在回到 master 分支，进行一次快进合并<br>衍合的目的，是想要得到一个能在远程分支上干净应用的补丁<br>如果视察一个衍合过的分支的历史记录，看起来会更清楚：<br>仿佛所有修改都是在一根线上先后进行的，尽管实际上它们原本是同时并行发生的。</p>
+</blockquote>
+<hr>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase master <span class="keyword">server</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>先取出特性分支 server，然后在主分支 master 上重演</p>
+</blockquote>
 
       
     </div>
