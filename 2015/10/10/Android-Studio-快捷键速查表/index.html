@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android Studio 快捷键速查表 | Icewater&#39;s Blog</title>
+  <meta name="author" content="lfq7413">
+  
+  <meta name="description" content="description">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Android Studio 快捷键速查表"/>
+  <meta property="og:site_name" content="Icewater&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Icewater&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Icewater&#39;s Blog</a></h1>
+  <h2><a href="/">subtitle</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="https://github.com/lfq7413">GitHub</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-10T09:03:30.000Z"><a href="/2015/10/10/Android-Studio-快捷键速查表/">2015-10-10</a></time>
+      
+      
+  
+    <h1 class="title">Android Studio 快捷键速查表</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="打开类、文件、描述符（Opening_Class/File/Symbol）">打开类、文件、描述符（Opening Class/File/Symbol）</h3><h4 id="打开类（Open_class）">打开类（Open class）</h4><p>cmd+o</p>
+<h4 id="打开文件（Open_File）">打开文件（Open File）</h4><p>cmd+shift+o</p>
+<h4 id="打开描述符（Open_Symbol）">打开描述符（Open Symbol）</h4><p>cmd+alt+o</p>
+<blockquote>
+<p>可以定位方法、变量</p>
+</blockquote>
+<h4 id="Tips">Tips</h4><ul>
+<li>以上搜索支持模糊查询，支持名字中的大写字母查询。</li>
+<li>加入:22，即可到达指定的行数。</li>
+</ul>
+<h3 id="最近的文件（Recent_Files）">最近的文件（Recent Files）</h3><h4 id="最近打开的文件（Recently_opened_files）">最近打开的文件（Recently opened files）</h4><p>cmd+e</p>
+<h4 id="最近修改的文件（Recently_edited_files）">最近修改的文件（Recently edited files）</h4><p>cmd+shift+e</p>
+<h4 id="Tip">Tip</h4><ul>
+<li>打开列表之后，即可键入字母进行搜索</li>
+</ul>
+<h3 id="前后导航（Navigate_Back/Forward）">前后导航（Navigate Back/Forward）</h3><p>cmd+alt+left/right</p>
+<blockquote>
+<p>在各种跳转之中导航</p>
+</blockquote>
+<h3 id="回到上次编辑的位置（Last_Edit_Location）">回到上次编辑的位置（Last Edit Location）</h3><p>cmd+shift+backspace</p>
+<blockquote>
+<p>在经过各种跳转之后，快速回到上次编辑的位置</p>
+</blockquote>
+<h3 id="显示使用情况（Show_Usage）">显示使用情况（Show Usage）</h3><h4 id="在边栏中显示（In_a_Persistent_Panel）">在边栏中显示（In a Persistent Panel）</h4><p>alt+f7</p>
+<h4 id="在当前位置显示（In_Place）">在当前位置显示（In Place）</h4><p>cmd+alt+f7</p>
+<h3 id="跳转到声明或实现（Goto_Declaration/Implementation_(Drill_Down)）">跳转到声明或实现（Goto Declaration/Implementation (Drill Down)）</h3><h4 id="跳转到声明（Goto_Declaration）">跳转到声明（Goto Declaration）</h4><p>cmd+b、cmd+click</p>
+<h4 id="跳转到实现（Goto_Implementation）">跳转到实现（Goto Implementation）</h4><p>cmd+alt+b</p>
+<h4 id="跳转到变量类型的声明（Goto_Type_Declaration）">跳转到变量类型的声明（Goto Type Declaration）</h4><p>ctrl+shift+b</p>
+<h3 id="跳转到父类（Goto_Super）">跳转到父类（Goto Super）</h3><p>cmd+u</p>
+<h3 id="高亮显示（Highlight_All_the_Things）">高亮显示（Highlight All the Things）</h3><p>cmd+shift+f7</p>
+<blockquote>
+<p>高亮显示与当前光标所在位置相关的所有内容</p>
+</blockquote>
+<ul>
+<li>使用 cmd+g 和 cmd+shift+g 在高亮内容之间前后导航</li>
+<li>作用在 return 和 throw 上时，会高亮显示方法中所有的退出位置</li>
+<li>作用在 extends 和 implements 上时，会高亮显示类中所有 overriden/implemented 的方法</li>
+<li>作用在 import 上时，会高亮显示使用位置</li>
+<li>按 Escape 取消所有高亮，按 cmd+shift+f7 取消当前高亮</li>
+</ul>
+<h3 id="在方法与内部类中移动（Move_Between_Methods_and_Inner_Classes）">在方法与内部类中移动（Move Between Methods and Inner Classes）</h3><p>ctrl+up/down</p>
+<blockquote>
+<p>在方法内部点击 ctrl+up 可快速回到方法名处</p>
+</blockquote>
+<h3 id="显示文件结构（The_File_Structure_Popup）">显示文件结构（The File Structure Popup）</h3><p>cmd+f12</p>
+<blockquote>
+<p>键入字母可进行过滤</p>
+</blockquote>
+<h3 id="显示调用层级（The_Call_Hierarchy_Popup）">显示调用层级（The Call Hierarchy Popup）</h3><p>ctrl+alt+h</p>
+<h3 id="快速查看定义（Quick_Definition_Lookup）">快速查看定义（Quick Definition Lookup）</h3><p>cmd+y</p>
+<blockquote>
+<p>在当前位置弹出窗口查看</p>
+</blockquote>
+<h3 id="收缩展开代码段（Collapse_Expand_Code_Block）">收缩展开代码段（Collapse Expand Code Block）</h3><p>cmd+plus/minus</p>
+<blockquote>
+<p>隐藏普通的方法体，转换匿名内部类为 lambda 表达式的形式</p>
+</blockquote>
+<h3 id="书签（Bookmarks）">书签（Bookmarks）</h3><h4 id="添加书签（Toggle_Bookmark）">添加书签（Toggle Bookmark）</h4><p>f3</p>
+<h4 id="添加带标记的书签（Toggle_Bookmark_With_Mnemonic）">添加带标记的书签（Toggle Bookmark With Mnemonic）</h4><p>alt+f3</p>
+<blockquote>
+<p>如果添加的标记是数字，可使用 ctrl+ 数字来快速访问书签位置</p>
+</blockquote>
+<h4 id="显示书签（Show_Bookmarks）">显示书签（Show Bookmarks）</h4><p>cmd+f3</p>
+<h3 id="查找动作（Find_Actions）">查找动作（Find Actions）</h3><p>cmd+shift+a</p>
+<h3 id="上下移动行（Move_Lines_Up/Down）">上下移动行（Move Lines Up/Down）</h3><p>alt+shift+up/down</p>
+<h3 id="删除行（Delete_Line）">删除行（Delete Line）</h3><p>cmd+backspace</p>
+<h3 id="复制行（Duplicate_Lines）">复制行（Duplicate Lines）</h3><p>cmd+d</p>
+<h3 id="展开缩小选中区域（Expand/Shrink_Selection）">展开缩小选中区域（Expand/Shrink Selection）</h3><p>alt+up/down</p>
+<h3 id="包裹代码（Surround_with）">包裹代码（Surround with）</h3><p>cmd+alt+t</p>
+<blockquote>
+<p>使用 if/for/try 等包裹代码</p>
+</blockquote>
+<h3 id="代码模板（Live_Templates）">代码模板（Live Templates）</h3><p>cmd+j</p>
+<blockquote>
+<p>点击之后会出现模板列表。当记住模板名称之后，可不用此快捷键，直接键入模板名称即可使用模板</p>
+</blockquote>
+<h3 id="上下移动方法（Move_Methods）">上下移动方法（Move Methods）</h3><p>cmd+shift+up/down</p>
+<h3 id="自动完成代码（Complete_Statement）">自动完成代码（Complete Statement）</h3><p>cmd+shift+enter</p>
+<ul>
+<li>自动在行尾添加分号，光标不在行尾也起作用</li>
+<li>在 if/while/for 后面添加小括号和大括号</li>
+<li>在方法声明后面添加大括号</li>
+<li>当代码已经完成时，则会自动添加并跳转到下一行，光标不在行尾也起作用</li>
+</ul>
+<h3 id="合并行和字符串（Join_Lines_and_Literals）">合并行和字符串（Join Lines and Literals）</h3><p>ctrl+shift+j</p>
+<ul>
+<li>可合并代码和注释行</li>
+<li>可合并字符串赋值行</li>
+<li>可合并变量声明和赋值行</li>
+<li>可一次合并多行</li>
+</ul>
+<h3 id="选择在什么位置打开当前文件（Select_In）">选择在什么位置打开当前文件（Select In）</h3><p>alt+f1</p>
+<blockquote>
+<p>选择 reveal in Finder 即可在 Finder 中打开</p>
+</blockquote>
+<h3 id="删除包裹的外层代码（Unwrap/Remove）">删除包裹的外层代码（Unwrap/Remove）</h3><p>cmd+shift+delete+fn</p>
+<h3 id="断点（Breakpoints）">断点（Breakpoints）</h3><h4 id="标记断点（Toggle_Breakpoints）">标记断点（Toggle Breakpoints）</h4><p>cmd+f8</p>
+<h4 id="条件断点（Conditional_Breakpoints）">条件断点（Conditional Breakpoints）</h4><p>右键点击断点并输入条件</p>
+<h4 id="打印断点信息（Logging_Breakpoints）">打印断点信息（Logging Breakpoints）</h4><p>右键点击断点，取消选择 Suspend ，在 Log evaluated Expression 中输入要打印的信息</p>
+<blockquote>
+<p>在这里可以打印相关的变量信息而不中断应用，同时应用也不需要再加打印信息并重新部署</p>
+</blockquote>
+<h4 id="临时断点（Temporary_Breakpoints）">临时断点（Temporary Breakpoints）</h4><p>cmd+alt+shift+f8 / alt+leftclick</p>
+<h4 id="禁用断点（Disable_Breakpoints）">禁用断点（Disable Breakpoints）</h4><p>alt+leftclick 点击已存在断点</p>
+<h3 id="调试（Debugger）">调试（Debugger）</h3><h4 id="附加调试（Attach_Debugger）">附加调试（Attach Debugger）</h4><p>点击菜单栏图标或者点击 Run → Attach Debugger to Android Process</p>
+<h4 id="执行表达式（Evaluate_Expression）">执行表达式（Evaluate Expression）</h4><p>alt+f8</p>
+<blockquote>
+<p>在此断点处，可输入任何合法的 Java 表达式进行执行</p>
+</blockquote>
+<h4 id="检查变量值（Inspect_Variable）">检查变量值（Inspect Variable）</h4><p>alt+leftclick 点击表达式</p>
+<blockquote>
+<p>在此断点处，可点击表达式查看值</p>
+</blockquote>
+<h4 id="标记对象（Mark_Object）">标记对象（Mark Object）</h4><p>在 Debugger 面板中，右键对象选择 Mark Object 或者 f3</p>
+<h4 id="分析调用栈（Analyze_Stacktrace）">分析调用栈（Analyze Stacktrace）</h4><p>菜单栏 Analyze → Analyze Stacktrace</p>
+<blockquote>
+<p>复制出错的调用栈信息，分析之后即可变成可点击的状态</p>
+</blockquote>
+<h4 id="分析调用路径（Analyze_Data_flow_to_Here）">分析调用路径（Analyze Data flow to Here）</h4><p>菜单栏 Analyze → Analyze Data Flow to Here</p>
+<h4 id="停止进程（Stop_Process）">停止进程（Stop Process）</h4><p>cmd+f2</p>
+<h4 id="显示当前执行到的点（Show_Execution_Point）">显示当前执行到的点（Show Execution Point）</h4><p>alt+f10</p>
+<h3 id="多选操作（Multi_Selection）">多选操作（Multi Selection）</h3><h4 id="Sublime_Text_类型的多选（Sublime_Text_Multi_Selection）">Sublime Text 类型的多选（Sublime Text Multi Selection）</h4><p>ctrl+g</p>
+<blockquote>
+<p>选中要查找的字符串，按快捷键后，即可搜索到相同的串，并且插入光标，可进行编辑</p>
+</blockquote>
+<h4 id="块状选择（Column_Selection）">块状选择（Column Selection）</h4><p>alt+mousedrag / cmd+shift+8 / 中键</p>
+<h4 id="多行选择">多行选择</h4><p>alt+shift+leftclick</p>
+<h3 id="尾部自动完成（Postfix_Completion）">尾部自动完成（Postfix Completion）</h3><p>在变量后面输入 . 之后即可得到可自动完成代码的列表</p>
+<blockquote>
+<p>.for 自动完后曾List的foreach；.cast 自动完成类型转换；等</p>
+</blockquote>
+<h3 id="与粘贴板内容进行对比（Compare_With_Clipboard）">与粘贴板内容进行对比（Compare With Clipboard）</h3><p>右键选中的块，然后选择 Compare With Clipboard</p>
+<h3 id="打开VCS操作菜单（VCS_Operations_Popup）">打开VCS操作菜单（VCS Operations Popup）</h3><p>ctrl+v</p>
+<h3 id="面板操作">面板操作</h3><h4 id="返回到编辑界面（Return_to_the_Editor）">返回到编辑界面（Return to the Editor）</h4><p>escape 直接返回编辑面板，shift+escape 返回编辑面板并关闭其他面板</p>
+<h4 id="返回到最后一个工具面板（Jump_to_Last_Tool_Window）">返回到最后一个工具面板（Jump to Last Tool Window）</h4><p>f12</p>
+<h4 id="隐藏所有面板（Hide_All_Panels）">隐藏所有面板（Hide All Panels）</h4><p>cmd+shift+f12</p>
+<h4 id="通过数字打开面板（Open_a_Panel_by_Its_Number）">通过数字打开面板（Open a Panel by Its Number）</h4><p>cmd+number</p>
+<h4 id="切换面板（The_Switcher）">切换面板（The Switcher）</h4><p>ctrl+tab 然后键入相应的数字或字母</p>
+<h3 id="参数信息（Parameter_Info）">参数信息（Parameter Info）</h3><p>cmd+p</p>
+<h3 id="上下文信息（Context_Info）">上下文信息（Context Info）</h3><p>ctrl+shift+q</p>
+<h3 id="相关信息（Refactor_This）">相关信息（Refactor This）</h3><p>ctrl+t</p>
+<blockquote>
+<p>显示与当前光标坐在变量或方法相关的弹出菜单，可进行快捷操作</p>
+</blockquote>
+<h3 id="相关的文件（Related_File）">相关的文件（Related File）</h3><p>ctrl+cmd+up</p>
+<blockquote>
+<p>在 activity/fragment 和与之关联的 layout 之间跳转</p>
+</blockquote>
+<h3 id="自动提取生成变量（Extract_Variable）">自动提取生成变量（Extract Variable）</h3><p>cmd+alt+v</p>
+<blockquote>
+<p>在 new Exam() 上生成对应的变量并自动命名</p>
+</blockquote>
+<h3 id="自动提取生成参数（Extract_Parameter）">自动提取生成参数（Extract Parameter）</h3><p>cmd+alt+p</p>
+<blockquote>
+<p>在方法中某个变量上操作，使变量变成改方法的参数</p>
+</blockquote>
+<h3 id="自动提取生成方法（Extract_Method）">自动提取生成方法（Extract Method）</h3><p>cmd+alt+m</p>
+<blockquote>
+<p>选中代码，可自动生成方法体</p>
+</blockquote>
+<h3 id="内联（Inline）">内联（Inline）</h3><p>cmd+alt+n</p>
+<blockquote>
+<p>将代码直接嵌入调用它的位置，适用于 methods, fields, parameters and variables</p>
+</blockquote>
+<h3 id="重命名（Rename）">重命名（Rename）</h3><p>shift+f6</p>
+<h3 id="移动方法与变量（Pull_Up_/_Push_Down）">移动方法与变量（Pull Up / Push Down）</h3><p>ctrl+t 选择 pull members up 或 push members down</p>
+<blockquote>
+<p>移动方法和变量到父类或子类</p>
+</blockquote>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Android-Studio/">Android Studio</a>
+  </div>
+
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Android/">Android</a><small>2</small></li>
+  
+    <li><a href="/categories/Android-Studio/">Android Studio</a><small>1</small></li>
+  
+    <li><a href="/categories/Git/">Git</a><small>1</small></li>
+  
+    <li><a href="/categories/Github/">Github</a><small>1</small></li>
+  
+    <li><a href="/categories/iOS/">iOS</a><small>3</small></li>
+  
+    <li><a href="/categories/other/">other</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/10/10/Android-Studio-快捷键速查表/">Android Studio 快捷键速查表</a>
+      </li>
+    
+      <li>
+        <a href="/2015/09/07/Git-命令速查/">Git 命令速查</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/05/iOS开发学习笔记3/">iOS开发学习笔记3</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/27/iOS开发学习笔记2/">iOS开发学习笔记2</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/22/iOS开发学习笔记1/">iOS开发学习笔记1</a>
+      </li>
+    
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 lfq7413
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+</body>
+</html>
